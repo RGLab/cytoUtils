@@ -1,0 +1,7 @@
+<map id="gate" name="gate">
+<area shape="rect" id="node2" href="$classboolGate.html" title="boolean gate " alt="" coords="11,80,84,107"/>
+<area shape="rect" id="node4" href="$classpolygonGate.html" title="polygon shaped gate " alt="" coords="111,80,205,107"/>
+<area shape="rect" id="node3" href="$classlogicalGate.html" title="a special boolGate " alt="" coords="5,155,91,181"/>
+<area shape="rect" id="node5" href="$classellipseGate.html" title="ellipse gate " alt="" coords="115,155,201,181"/>
+<area shape="rect" id="node6" href="$classrectGate.html" title="rectangle gate " alt="" coords="227,155,299,181"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="CurlyGuadGate" name="CurlyGuadGate">
+<area shape="rect" id="node2" href="$classpolygonGate.html" title="polygon shaped gate " alt="" coords="25,96,119,123"/>
+<area shape="rect" id="node3" href="$classgate.html" title="the base gate class " alt="" coords="5,5,51,32"/>
+<area shape="rect" id="node4" href="$classparamPoly.html" title="paramPoly" alt="" coords="75,5,159,32"/>
+</map>

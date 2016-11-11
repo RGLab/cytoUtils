@@ -1,0 +1,10 @@
+<map id="transformation" name="transformation">
+<area shape="rect" id="node2" href="$classbiexpTrans.html" title="biexpTrans" alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="$classfasinhTrans.html" title="fasinhTrans" alt="" coords="116,80,207,107"/>
+<area shape="rect" id="node5" href="$classflinTrans.html" title="flinTrans" alt="" coords="231,80,303,107"/>
+<area shape="rect" id="node6" href="$classlinTrans.html" title="linTrans" alt="" coords="327,80,395,107"/>
+<area shape="rect" id="node8" href="$classlogTrans.html" title="logTrans" alt="" coords="428,80,500,107"/>
+<area shape="rect" id="node4" href="$classfsinhTrans.html" title="fsinhTrans" alt="" coords="120,155,201,181"/>
+<area shape="rect" id="node7" href="$classscaleTrans.html" title="scaleTrans" alt="" coords="310,155,396,181"/>
+<area shape="rect" id="node9" href="$classlogInverseTrans.html" title="logInverseTrans" alt="" coords="421,155,536,181"/>
+</map>

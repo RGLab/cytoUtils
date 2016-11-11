@@ -1,0 +1,8 @@
+<map id="GatingSet" name="GatingSet">
+<area shape="rect" id="node2" href="$classbiexpTrans.html" title="biexpTrans" alt="" coords="5,187,91,213"/>
+<area shape="rect" id="node3" href="$classtransformation.html" title="transformation" alt="" coords="45,96,149,123"/>
+<area shape="rect" id="node7" href="$classlinTrans.html" title="linTrans" alt="" coords="131,187,199,213"/>
+<area shape="rect" id="node4" href="$classcalibrationTable.html" title="calibrationTable" alt="" coords="41,5,153,32"/>
+<area shape="rect" id="node5" href="$classworkspace.html" title="workspace" alt="" coords="256,187,341,213"/>
+<area shape="rect" id="node6" href="$structxpath.html" title="xpath" alt="" coords="271,96,325,123"/>
+</map>

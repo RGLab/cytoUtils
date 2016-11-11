@@ -1,0 +1,5 @@
+<map id="polygonGate" name="polygonGate">
+<area shape="rect" id="node3" href="$classellipseGate.html" title="ellipse gate " alt="" coords="5,155,91,181"/>
+<area shape="rect" id="node4" href="$classrectGate.html" title="rectangle gate " alt="" coords="116,155,188,181"/>
+<area shape="rect" id="node2" href="$classgate.html" title="the base gate class " alt="" coords="77,5,123,32"/>
+</map>

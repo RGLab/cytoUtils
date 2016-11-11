@@ -1,0 +1,5 @@
+<map id="GatingHierarchy" name="GatingHierarchy">
+<area shape="rect" id="node2" href="$classflowData.html" title="flowData" alt="" coords="5,5,79,32"/>
+<area shape="rect" id="node3" href="$classtrans__local.html" title="trans_local" alt="" coords="104,5,189,32"/>
+<area shape="rect" id="node4" href="$classcompensation.html" title="compensation" alt="" coords="214,5,316,32"/>
+</map>
