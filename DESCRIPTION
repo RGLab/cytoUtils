@@ -7,5 +7,6 @@ Maintainer: Mike Jiang <wjiang2@fhcrc.org>
 Description: extending openCyto framework at c++ level
 License: GPL2
 LazyData: TRUE
+Imports: flowWorkspace, flowCore, ncdfFlow, data.table
 LinkingTo: Rcpp, flowWorkspace
 RoxygenNote: 5.0.1
