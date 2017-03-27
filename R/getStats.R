@@ -4,9 +4,11 @@
 #'
 #' @param x a GatingSet or GatingHierarchy
 #' @param ... other arguments
-#'      fun a function used to compute population stats. It expects 'fr' argument as a flowFrame and a named vector as return value.
-#'          default is \code{pop.count} function.
 #'      nodes the character vector specifies the populations of interest. default is all available nodes
+#'      type the character vector specifies the type of pop stats or
+#'          a function used to compute population stats.
+#'          when character, it is expected to be either "count" or "percent". Default is "count" (total number of events in the populations).
+#'          when a function,  it takes a flowFrame object through 'fr' argument and return the stats as a named vector.
 #'      ... arguments passed to \link{getNodes} method.
 #' @return a data.table that contains MFI values for each marker per column along with 'pop' column and 'sample' column (when used on a 'GatingSet')
 #' @import flowWorkspace
@@ -25,8 +27,11 @@
 #' # get stats all nodes
 #' dt <- getStats(gs) #default is "count"
 #'
-#' # change the stats to another build-in function and specify nodes
-#' getStats(gs, fun = pop.MFI, nodes = c("CD4", "CD8"))
+#' nodes <- c("CD4", "CD8")
+#' getStats(gs, nodes, "percent")
+#'
+#' # pass a build-in function
+#' getStats(gs, nodes, type = pop.MFI)
 #'
 #' # supply user-defined stats fun
 #' pop.quantiles <- function(fr){
@@ -35,7 +40,7 @@
 #'    names(res) <- chnls
 #'    res
 #'    }
-#' getStats(gs, fun = pop.quantiles, nodes = c("CD4", "CD8"))
+#' getStats(gs, nodes, type = pop.quantiles)
 #' }
 getStats <- function(x, ...)UseMethod("getStats")
 
@@ -57,14 +62,28 @@ getStats.GatingSet <- function(x, ...){
 
 #' @export
 #' @rdname getStats
-getStats.GatingHierarchy <- function(x, fun = pop.count, nodes = NULL, ...){
+getStats.GatingHierarchy <- function(x, nodes = NULL, type = c("count", "percent"), ...){
   gh <- x
   if(is.null(nodes))
     nodes <- getNodes(gh, ...)
   res <- sapply(nodes, function(node){
+    if(is.character(type))
+    {
+      if(type == "count")
+      {
+        res <- getTotal(gh, node)
+        names(res) <- "count"
+      }else if(type == "percent")
+      {
+        res <- getProp(gh, node)
+        names(res) <- "percent"
+      }else
+        stop("unsupported stats type: ", type)
+    }else{
+      fr <- getData(gh, y = node)
+      res <- type(fr)
+    }
 
-    fr <- getData(gh, y = node)
-    res <- fun(fr)
     as.data.table(t(res))
   }, simplify = FALSE)
   rbindlist(res, idcol = "pop")
@@ -73,21 +92,12 @@ getStats.GatingHierarchy <- function(x, fun = pop.count, nodes = NULL, ...){
 
 #' built-in stats functions.
 #'
-#' pop.count returns the count.
 #' pop.MFI computes and returns the median fluorescence intensity for each marker.
 #' They are typically used as the arguments passed to \code{getStats} method to perform the sample-wise population stats calculations.
 #'
 #' @param fr a flowFrame represents a gated population
 #' @return a named numeric vector
 #'
-#' @rdname stats.fun
-#' @export
-pop.count <- function(fr){
-  res <- nrow(fr)
-  names(res) <- "count"
-  res
-}
-
 #' @rdname stats.fun
 #' @export
 #' @importFrom  matrixStats colMedians

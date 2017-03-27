@@ -13,15 +13,18 @@ getStats(x, ...)
 
 \method{getStats}{GatingSet}(x, ...)
 
-\method{getStats}{GatingHierarchy}(x, fun = pop.count, nodes = NULL, ...)
+\method{getStats}{GatingHierarchy}(x, nodes = NULL, type = c("count",
+  "percent"), ...)
 }
 \arguments{
 \item{x}{a GatingSet or GatingHierarchy}
 
 \item{...}{other arguments
-fun a function used to compute population stats. It expects 'fr' argument as a flowFrame and a named vector as return value.
-    default is \code{pop.count} function.
 nodes the character vector specifies the populations of interest. default is all available nodes
+type the character vector specifies the type of pop stats or
+    a function used to compute population stats.
+    when character, it is expected to be either "count" or "percent". Default is "count" (total number of events in the populations).
+    when a function,  it takes a flowFrame object through 'fr' argument and return the stats as a named vector.
 ... arguments passed to \link{getNodes} method.}
 }
 \value{
@@ -41,7 +44,7 @@ suppressMessages(gs <- load_gs(list.files(dataDir, pattern = "gs_manual",full = 
 dt <- getStats(gs) #default is "count"
 
 # change the stats to another build-in function and specify nodes
-getStats(gs, fun = pop.MFI, nodes = c("CD4", "CD8"))
+getStats(gs, c("CD4", "CD8"), fun = pop.MFI)
 
 # supply user-defined stats fun
 pop.quantiles <- function(fr){
@@ -50,7 +53,7 @@ pop.quantiles <- function(fr){
    names(res) <- chnls
    res
    }
-getStats(gs, fun = pop.quantiles, nodes = c("CD4", "CD8"))
+getStats(gs, nodes = c("CD4", "CD8"), fun = pop.quantiles)
 }
 }
 
