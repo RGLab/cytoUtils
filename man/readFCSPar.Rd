@@ -19,4 +19,3 @@ This is a convenient wrapper around \link{read.FCSheader} and \code{flowCore:::r
 
 readFCSPar(system.file("extdata/0877408774.B08", package = "flowCore"))
 }
-

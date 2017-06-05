@@ -2,9 +2,9 @@
 % Please edit documentation in R/getStats.R
 \name{getStats}
 \alias{getStats}
-\alias{getStats.GatingHierarchy}
-\alias{getStats.GatingSet}
 \alias{getStats.GatingSetList}
+\alias{getStats.GatingSet}
+\alias{getStats.GatingHierarchy}
 \title{Exact MFI from populations(or nodes) for all the markers}
 \usage{
 getStats(x, ...)
@@ -59,4 +59,3 @@ pop.quantiles <- function(fr){
 getStats(gs, nodes, type = pop.quantiles)
 }
 }
-

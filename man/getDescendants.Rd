@@ -23,4 +23,3 @@ suppressMessages(gs <- load_gs(list.files(dataDir, pattern = "gs_manual",full = 
 getDescendants(gs[[1]], "CD4")
 getDescendants(gs[[1]], "CD8", path = "auto")
 }
-

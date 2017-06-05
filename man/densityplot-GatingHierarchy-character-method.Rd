@@ -22,4 +22,3 @@ dataDir <- system.file("extdata",package="flowWorkspaceData")
 suppressMessages(gs <- load_gs(list.files(dataDir, pattern = "gs_manual",full = TRUE)))
 densityplot(gs[[1]], "CD4")
 }
-

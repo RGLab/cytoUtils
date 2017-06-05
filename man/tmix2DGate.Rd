@@ -31,4 +31,3 @@ It basically calls flowClust to fit K clusters and construct K \code{ellipsoidGa
     autoplot(fr, "CD8","CD4") + geom_gate(gates)
 }
 }
-

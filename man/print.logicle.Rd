@@ -22,4 +22,3 @@ print.logicle(trans)
 \author{
 Phu Van
 }
-

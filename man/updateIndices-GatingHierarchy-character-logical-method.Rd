@@ -43,4 +43,3 @@ nodes <- getDescendants(gh, "CD3+")
 for (node in nodes) suppressMessages(recompute(gh, node))
 getStats(gs[[1]], nodes = c("CD3+", "CD4", "CD8")) #now all are update to date
 }
-
