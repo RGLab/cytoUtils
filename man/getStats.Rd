@@ -43,8 +43,11 @@ suppressMessages(gs <- load_gs(list.files(dataDir, pattern = "gs_manual",full = 
 # get stats all nodes
 dt <- getStats(gs) #default is "count"
 
-# change the stats to another build-in function and specify nodes
-getStats(gs, c("CD4", "CD8"), fun = pop.MFI)
+nodes <- c("CD4", "CD8")
+getStats(gs, nodes, "percent")
+
+# pass a build-in function
+getStats(gs, nodes, type = pop.MFI)
 
 # supply user-defined stats fun
 pop.quantiles <- function(fr){
@@ -53,7 +56,7 @@ pop.quantiles <- function(fr){
    names(res) <- chnls
    res
    }
-getStats(gs, nodes = c("CD4", "CD8"), fun = pop.quantiles)
+getStats(gs, nodes, type = pop.quantiles)
 }
 }
 
