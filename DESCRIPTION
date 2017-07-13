@@ -8,5 +8,5 @@ Description: extending openCyto framework at c++ level
 License: GPL2
 LazyData: TRUE
 Imports: flowWorkspace, flowCore, ncdfFlow, data.table
-LinkingTo: Rcpp, flowWorkspace, BH(>= 1.62.0-1)
+LinkingTo: Rcpp, flowWorkspace, BH(>= 1.62.0-1), RProtoBufLib
 RoxygenNote: 6.0.1
