@@ -27,7 +27,11 @@ It basically calls flowClust to fit K clusters and construct K \code{ellipsoidGa
 }
 \examples{
 \dontrun{
-    gates <- tmix2DGate(fr = fr, channels = c("CD4", "CD8"), K = 2, quantile = 0.7)  
-    autoplot(fr, "CD8","CD4") + geom_gate(gates)
+library(ggcyto)
+dataDir <- system.file("extdata",package="flowWorkspaceData")
+gs <- load_gs(list.files(dataDir, pattern = "gs_manual",full = TRUE))
+fr <- getData(gs[[1]], "CD3+")
+gates <- tmix2DGate(fr = fr, channels = c("<B710-A>", "<B710-A>"), K = 2, quantile = 0.7)
+autoplot(fr, "CD8","CD4") + geom_gate(gates)
 }
 }
