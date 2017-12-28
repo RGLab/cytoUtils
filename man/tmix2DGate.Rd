@@ -4,7 +4,7 @@
 \alias{tmix2DGate}
 \title{Gating wrapper based on flowClust::tmixFilter}
 \usage{
-tmix2DGate(fr, channels, K, quantile = 0.85, trans = 0, ...)
+tmix2DGate(fr, channels, K, quantile = 0.85, trans = 0, plot = FALSE, ...)
 }
 \arguments{
 \item{fr}{\code{flowFrame}}
@@ -16,6 +16,8 @@ tmix2DGate(fr, channels, K, quantile = 0.85, trans = 0, ...)
 \item{quantile}{\code{numeric} vector of length K, which specifies the size of each cluster.}
 
 \item{trans}{\code{numeric} must be 0}
+
+\item{plot}{logical flag, whether to plot the flowClust results for the diagnostic purpose.}
 
 \item{...}{other arguments passed to \code{tmixFilter}}
 }
@@ -31,7 +33,7 @@ library(ggcyto)
 dataDir <- system.file("extdata",package="flowWorkspaceData")
 gs <- load_gs(list.files(dataDir, pattern = "gs_manual",full = TRUE))
 fr <- getData(gs[[1]], "CD3+")
-gates <- tmix2DGate(fr = fr, channels = c("<B710-A>", "<B710-A>"), K = 2, quantile = 0.7)
+gates <- tmix2DGate(fr = fr, channels = c("<B710-A>", "<R780-A>"), K = 2, quantile = 0.7)
 autoplot(fr, "CD8","CD4") + geom_gate(gates)
 }
 }
