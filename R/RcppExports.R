@@ -9,6 +9,6 @@
 #' @param sampleName sample name
 #' @param node node name
 .getDescendants <- function(gsPtr, sampleName, node) {
-    .Call('cytoUtils_getDescendants', PACKAGE = 'cytoUtils', gsPtr, sampleName, node)
+    .Call('_cytoUtils_getDescendants', PACKAGE = 'cytoUtils', gsPtr, sampleName, node)
 }
 

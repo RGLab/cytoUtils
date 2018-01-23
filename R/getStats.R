@@ -9,6 +9,7 @@
 #'          a function used to compute population stats.
 #'          when character, it is expected to be either "count" or "percent". Default is "count" (total number of events in the populations).
 #'          when a function,  it takes a flowFrame object through 'fr' argument and return the stats as a named vector.
+#'      inverse.transform logical flag . Whether inverse transform the data before computing the stats.
 #'      ... arguments passed to \link{getNodes} method.
 #' @return a data.table that contains MFI values for each marker per column along with 'pop' column and 'sample' column (when used on a 'GatingSet')
 #' @import flowWorkspace
@@ -32,6 +33,9 @@
 #'
 #' # pass a build-in function
 #' getStats(gs, nodes, type = pop.MFI)
+#'
+#' # compute the stats based on the raw data scale
+#' getStats(gs, nodes, type = pop.MFI, inverse.transform = TRUE)
 #'
 #' # supply user-defined stats fun
 #' pop.quantiles <- function(fr){
@@ -62,7 +66,7 @@ getStats.GatingSet <- function(x, ...){
 
 #' @export
 #' @rdname getStats
-getStats.GatingHierarchy <- function(x, nodes = NULL, type = c("count", "percent"), ...){
+getStats.GatingHierarchy <- function(x, nodes = NULL, type = c("count", "percent"), inverse.transform = FALSE, ...){
   gh <- x
   if(is.null(nodes))
     nodes <- getNodes(gh, ...)
@@ -81,6 +85,14 @@ getStats.GatingHierarchy <- function(x, nodes = NULL, type = c("count", "percent
         stop("unsupported stats type: ", type)
     }else{
       fr <- getData(gh, y = node)
+      if(inverse.transform)
+      {
+        trans <- getTransformations(gh, inverse = TRUE)
+        if(length(trans)==0)
+          stop("No inverse transformation is found from the GatingSet!")
+        trans <- transformList(names(trans), trans)
+        fr <- transform(fr, trans)
+      }
       res <- type(fr)
     }
 

@@ -14,7 +14,7 @@ getStats(x, ...)
 \method{getStats}{GatingSet}(x, ...)
 
 \method{getStats}{GatingHierarchy}(x, nodes = NULL, type = c("count",
-  "percent"), ...)
+  "percent"), inverse.transform = FALSE, ...)
 }
 \arguments{
 \item{x}{a GatingSet or GatingHierarchy}
@@ -25,6 +25,7 @@ type the character vector specifies the type of pop stats or
     a function used to compute population stats.
     when character, it is expected to be either "count" or "percent". Default is "count" (total number of events in the populations).
     when a function,  it takes a flowFrame object through 'fr' argument and return the stats as a named vector.
+inverse.transform logical flag . Whether inverse transform the data before computing the stats.
 ... arguments passed to \link{getNodes} method.}
 }
 \value{
@@ -48,6 +49,9 @@ getStats(gs, nodes, "percent")
 
 # pass a build-in function
 getStats(gs, nodes, type = pop.MFI)
+
+# compute the stats based on the raw data scale
+getStats(gs, nodes, type = pop.MFI, inverse.transform = TRUE)
 
 # supply user-defined stats fun
 pop.quantiles <- function(fr){

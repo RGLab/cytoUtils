@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // getDescendants
 VertexID_vec getDescendants(Rcpp::XPtr<GatingSet> gsPtr, string sampleName, string node);
-RcppExport SEXP cytoUtils_getDescendants(SEXP gsPtrSEXP, SEXP sampleNameSEXP, SEXP nodeSEXP) {
+RcppExport SEXP _cytoUtils_getDescendants(SEXP gsPtrSEXP, SEXP sampleNameSEXP, SEXP nodeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,4 +18,14 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(getDescendants(gsPtr, sampleName, node));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_cytoUtils_getDescendants", (DL_FUNC) &_cytoUtils_getDescendants, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_cytoUtils(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
