@@ -1,12 +1,11 @@
 Package: cytoUtils
 Type: Package
-Title: extending openCyto framework at c++ level
+Title: extending openCyto framework
 Version: 0.1.1
 Author: Mike Jiang
 Maintainer: Mike Jiang <wjiang2@fhcrc.org>
-Description: extending openCyto framework at c++ level
+Description: extending openCyto framework
 License: GPL2
 LazyData: TRUE
 Imports: flowWorkspace, flowCore, ncdfFlow, data.table
-LinkingTo: Rcpp, cytolib, BH(>= 1.62.0-1), RProtoBufLib
 RoxygenNote: 6.0.1

@@ -11,6 +11,10 @@
 #'     gslist1<-clone(gslist)
 #'
 #'   }
+#' @import flowWorkspace
+#' @import flowCore
+#' @import ncdfFlow
+#' @import data.table
 #' @export
 #' @importFrom flowWorkspace clone GatingSetList
 #' @importClassesFrom flowWorkspace GatingSetList
