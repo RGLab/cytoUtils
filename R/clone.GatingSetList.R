@@ -3,12 +3,12 @@
 #'  A wrapper that invokes clone method for each underlying GatingSet.
 #'
 #' @param x A \code{GatingSetList}
-#' @param ... see \code{\link{clone,GatingSet-method}}
+#' @param ... see \code{\link{gs_clone}}
 #' @details
 #' @return A copy of a given \code{GatingSetList}.
 #' @examples
 #'   \dontrun{
-#'     gslist1<-clone(gslist)
+#'     gslist1<-gslist_clone(gslist)
 #'
 #'   }
 #' @import flowWorkspace
@@ -16,11 +16,10 @@
 #' @import ncdfFlow
 #' @import data.table
 #' @export
-#' @importFrom flowWorkspace clone GatingSetList
 #' @importClassesFrom flowWorkspace GatingSetList
-setMethod("clone",c("GatingSetList"),function(x,...){
+gslist_clone <- function(x,...){
 
-  x <- lapply(x, clone, ..., level = 1)
+  x <- lapply(x, gs_clone, ..., level = 1)
 
   GatingSetList(x)
-})
+}
