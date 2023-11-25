@@ -4,6 +4,7 @@
 #'@param ... arguments passed to \link{gate_tautString}
 #'@rdname tautStringGate
 #' @noRd 
+#' @useDynLib cytoUtils, .registration = TRUE
 .gate_tautstring <- function(fr, pp_res = NULL, channels, ...){
   if(length(channels) != 1){
     stop("Invalid number of channels. The tautString takes one channel.")
