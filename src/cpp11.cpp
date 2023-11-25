@@ -28,11 +28,7 @@ extern "C" SEXP _cytoUtils_tsGates(SEXP xVec, SEXP modePrior) {
 }
 
 extern "C" {
-/* .Call calls */
-extern SEXP _cytoUtils_getDescendants(SEXP, SEXP, SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
-    {"_cytoUtils_getDescendants",      (DL_FUNC) &_cytoUtils_getDescendants,      3},
     {"_cytoUtils_getTautStringApprox", (DL_FUNC) &_cytoUtils_getTautStringApprox, 1},
     {"_cytoUtils_singleDip",           (DL_FUNC) &_cytoUtils_singleDip,           1},
     {"_cytoUtils_tsGates",             (DL_FUNC) &_cytoUtils_tsGates,             2},
