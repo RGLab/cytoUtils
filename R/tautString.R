@@ -78,10 +78,6 @@ gate_tautstring <- function(fr, channel, gate_range = NULL, min = NULL, max = NU
   }
   return(filters)
 }
-#' @templateVar old tautStringGate
-#' @templateVar new gate_tautstring
-#' @template template-depr_pkg
-NULL
 
 #'@export
 tautStringGate <- function(fr, channel, gate_range = NULL, min = NULL, max = NULL, filterId = ""){
