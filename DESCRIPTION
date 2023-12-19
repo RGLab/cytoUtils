@@ -8,6 +8,6 @@ Description: extending openCyto framework
 License: GPL2
 LazyData: TRUE
 Suggests: testthat, flowWorkspaceData, openCyto
-Imports: flowWorkspace, flowCore, ncdfFlow, data.table,SummarizedExperiment,SingleCellExperiment,ks
+Imports: flowWorkspace, flowCore, ncdfFlow, data.table,SummarizedExperiment,SingleCellExperiment,ks,TreeSummarizedExperiment
 LinkingTo: cpp11
 RoxygenNote: 7.2.1
